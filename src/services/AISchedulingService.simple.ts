@@ -3,7 +3,6 @@
 
 import { 
   Task, 
-  TimeSlot, 
   SchedulingPreferences, 
   AISchedulingSuggestion, 
   ScheduleOptimization,
@@ -12,18 +11,16 @@ import {
 import { addMinutes, format } from 'date-fns';
 
 class AISchedulingService {
-  private readonly GEMINI_API_KEY: string;
-
   constructor() {
-    this.GEMINI_API_KEY = import.meta.env.VITE_APP_GEMINI_API_KEY || '';
+    // Simple service doesn't need external API
   }
 
   // Main method to generate schedule suggestions using user-selected times
   async generateScheduleSuggestions(
     tasks: Task[],
-    existingEvents: CalendarEvent[],
-    preferences: SchedulingPreferences,
-    dateRange: { start: Date; end: Date }
+    _existingEvents: CalendarEvent[], // Prefixed with _ to indicate intentionally unused
+    _preferences: SchedulingPreferences, // Not used in simple version
+    _dateRange: { start: Date; end: Date } // Not used in simple version
   ): Promise<ScheduleOptimization> {
     try {
       console.log('🚀 Generating simple schedule from user-selected times');
@@ -65,18 +62,18 @@ class AISchedulingService {
 
       console.log(`✅ Created ${suggestions.length} simple schedule suggestions`);
 
+      // Count scheduled and unscheduled tasks
+      const scheduledTasks = suggestions.length;
+      const unscheduledTasks = tasks.filter(task => !task.deadline);
+
       // Create optimization result
       const optimization: ScheduleOptimization = {
+        totalTasks: tasks.length,
+        scheduledTasks,
+        unscheduledTasks,
         suggestions,
-        conflictResolutions: [],
-        scheduleScore: 100, // Perfect score since we're using user's exact choices
-        optimizationInsights: [
-          'Tasks scheduled at user-selected times',
-          `${suggestions.length} tasks scheduled successfully`,
-          'No AI optimization needed - using your preferred times'
-        ],
-        estimatedProductivity: 0.95,
-        suggestedAdjustments: []
+        workloadBalance: [], // Not calculated in simple version
+        conflicts: [] // No conflict detection in simple version
       };
 
       return optimization;
