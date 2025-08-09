@@ -138,20 +138,20 @@ const AITools: React.FC = () => {
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white p-6"
+      className="min-h-screen p-6 text-white bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"
     >
-      <div className="max-w-7xl mx-auto">
+      <div className="mx-auto max-w-7xl">
         {/* Header */}
         <motion.div
           initial={{ y: -50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-12"
+          className="mb-12 text-center"
         >
-          <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent">
+          <h1 className="mb-4 text-5xl font-bold text-transparent bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text">
             AI Tools Hub
           </h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="max-w-3xl mx-auto text-xl text-gray-300">
             Powerful AI-driven tools to enhance your productivity and creativity
           </p>
         </motion.div>
@@ -161,15 +161,15 @@ const AITools: React.FC = () => {
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.8 }}
-          className="relative mb-8 max-w-md mx-auto"
+          className="relative max-w-md mx-auto mb-8"
         >
-          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+          <Search className="absolute w-5 h-5 text-gray-400 transform -translate-y-1/2 left-3 top-1/2" />
           <input
             type="text"
             placeholder="Search AI tools..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full pl-10 pr-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
+            className="w-full py-3 pl-10 pr-4 text-white bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
         </motion.div>
 
@@ -179,7 +179,7 @@ const AITools: React.FC = () => {
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.8 }}
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+            className="grid gap-6 md:grid-cols-2 lg:grid-cols-3"
           >
             {filteredTools.map((tool, index) => (
               <motion.div
@@ -188,12 +188,12 @@ const AITools: React.FC = () => {
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: index * 0.1, duration: 0.8 }}
                 onClick={() => handleToolSelect(tool)}
-                className="bg-gray-800 p-6 rounded-xl border border-gray-700 hover:border-gray-600 cursor-pointer transition-all duration-300 hover:transform hover:scale-105"
+                className="p-6 transition-all duration-300 bg-gray-800 border border-gray-700 cursor-pointer rounded-xl hover:border-gray-600 hover:transform hover:scale-105"
               >
                 <div className={`w-12 h-12 rounded-lg bg-gradient-to-r ${tool.color} flex items-center justify-center mb-4`}>
                   <tool.icon className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2">{tool.title}</h3>
+                <h3 className="mb-2 text-xl font-semibold">{tool.title}</h3>
                 <p className="text-gray-400">{tool.description}</p>
               </motion.div>
             ))}
@@ -208,7 +208,7 @@ const AITools: React.FC = () => {
             <div className="flex items-center mb-6">
               <button
                 onClick={() => setSelectedTool("")}
-                className="mr-4 px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-lg transition-colors"
+                className="px-4 py-2 mr-4 transition-colors bg-gray-700 rounded-lg hover:bg-gray-600"
               >
                 ← Back
               </button>
@@ -218,37 +218,37 @@ const AITools: React.FC = () => {
               <h2 className="text-2xl font-bold">{selectedToolData?.title}</h2>
             </div>
 
-            <div className="grid lg:grid-cols-2 gap-6">
+            <div className="grid gap-6 lg:grid-cols-2">
               {/* Input Section */}
-              <div className="bg-gray-800 p-6 rounded-xl border border-gray-700">
-                <h3 className="text-lg font-semibold mb-4">Input</h3>
+              <div className="p-6 bg-gray-800 border border-gray-700 rounded-xl">
+                <h3 className="mb-4 text-lg font-semibold">Input</h3>
                 <textarea
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   placeholder={`Enter text for ${selectedToolData?.title}...`}
-                  className="w-full h-64 p-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-white resize-none"
+                  className="w-full h-64 p-3 text-white bg-gray-700 border border-gray-600 rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
                 <button
                   onClick={() => processWithAI(input, selectedToolData?.systemPrompt || "")}
                   disabled={loading || !input.trim()}
-                  className="mt-4 w-full py-3 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300"
+                  className="w-full py-3 mt-4 font-semibold transition-all duration-300 rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {loading ? "Processing..." : "Process with AI"}
                 </button>
               </div>
 
               {/* Output Section */}
-              <div className="bg-gray-800 p-6 rounded-xl border border-gray-700">
-                <h3 className="text-lg font-semibold mb-4">Output</h3>
-                <div className="h-64 p-3 bg-gray-700 border border-gray-600 rounded-lg overflow-y-auto">
+              <div className="p-6 bg-gray-800 border border-gray-700 rounded-xl">
+                <h3 className="mb-4 text-lg font-semibold">Output</h3>
+                <div className="h-64 p-3 overflow-y-auto bg-gray-700 border border-gray-600 rounded-lg">
                   {loading ? (
                     <div className="flex items-center justify-center h-full">
-                      <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500"></div>
+                      <div className="w-8 h-8 border-b-2 border-blue-500 rounded-full animate-spin"></div>
                     </div>
                   ) : output ? (
                     <FormattedOutput content={output} />
                   ) : (
-                    <p className="text-gray-400 text-center mt-8">
+                    <p className="mt-8 text-center text-gray-400">
                       Output will appear here after processing
                     </p>
                   )}
