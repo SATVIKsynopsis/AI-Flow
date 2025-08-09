@@ -380,17 +380,17 @@ const ScheduleX: React.FC = () => {
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.8 }}
-          className="mb-12 text-center"
+          className="text-center mb-12"
         >
           <div className="flex items-center justify-center mb-6">
-            <div className="flex items-center justify-center w-16 h-16 mr-4 rounded-full bg-gradient-to-r from-blue-600 to-purple-600">
+            <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center mr-4">
               <Brain className="w-8 h-8 text-white" />
             </div>
-            <h1 className="text-5xl font-bold text-transparent bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text">
+            <h1 className="text-5xl font-bold bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
               ScheduleX
             </h1>
           </div>
-          <p className="max-w-3xl mx-auto text-xl leading-relaxed text-gray-300">
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
             AI-powered task scheduling that integrates with Google Calendar. 
             Let artificial intelligence optimize your time and boost your productivity.
           </p>
@@ -411,12 +411,12 @@ const ScheduleX: React.FC = () => {
           initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.6, duration: 0.8 }}
-          className="flex flex-wrap justify-center gap-4 mb-8"
+          className="flex flex-wrap gap-4 justify-center mb-8"
         >
           <button
             onClick={generateAISchedule}
             disabled={isGeneratingSchedule || tasks.length === 0 || connectedProviders.length === 0}
-            className="flex items-center px-6 py-3 space-x-2 font-semibold text-white transition-all duration-300 rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg font-semibold text-white hover:from-blue-700 hover:to-purple-700 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {isGeneratingSchedule ? (
               <RefreshCw className="w-5 h-5 animate-spin" />
@@ -430,7 +430,7 @@ const ScheduleX: React.FC = () => {
             <button
               onClick={syncToCalendar}
               disabled={isGeneratingSchedule || connectedProviders.length === 0}
-              className="flex items-center px-6 py-3 space-x-2 font-semibold text-white transition-all duration-300 rounded-lg bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-green-600 to-emerald-600 rounded-lg font-semibold text-white hover:from-green-700 hover:to-emerald-700 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
               title={connectedProviders.length === 0 ? 'Connect to Google Calendar first' : 'Sync tasks to Google Calendar'}
             >
               {isGeneratingSchedule ? (
@@ -444,7 +444,7 @@ const ScheduleX: React.FC = () => {
 
           <button
             onClick={() => setActiveTab('tasks')}
-            className="flex items-center px-6 py-3 space-x-2 font-semibold text-white transition-all duration-300 bg-gray-700 rounded-lg hover:bg-gray-600"
+            className="flex items-center space-x-2 px-6 py-3 bg-gray-700 hover:bg-gray-600 rounded-lg font-semibold text-white transition-all duration-300"
           >
             <Plus className="w-5 h-5" />
             <span>Add Task</span>
@@ -482,7 +482,7 @@ const ScheduleX: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.5 }}
-            className="p-8 border border-gray-700 bg-gray-800/50 backdrop-blur-sm rounded-xl"
+            className="bg-gray-800/50 backdrop-blur-sm p-8 rounded-xl border border-gray-700"
           >
             {activeTab === 'tasks' && (
               <TaskManager
@@ -527,40 +527,40 @@ const ScheduleX: React.FC = () => {
           transition={{ delay: 1.2, duration: 0.8 }}
           className="mt-12 text-center"
         >
-          <div className="p-8 border bg-gradient-to-r from-blue-600/20 to-purple-600/20 backdrop-blur-sm rounded-xl border-blue-500/30">
-            <h3 className="mb-4 text-2xl font-bold">How ScheduleX Works</h3>
-            <div className="grid gap-6 text-left md:grid-cols-3">
+          <div className="bg-gradient-to-r from-blue-600/20 to-purple-600/20 backdrop-blur-sm p-8 rounded-xl border border-blue-500/30">
+            <h3 className="text-2xl font-bold mb-4">How ScheduleX Works</h3>
+            <div className="grid md:grid-cols-3 gap-6 text-left">
               <div className="flex items-start space-x-3">
-                <div className="flex items-center justify-center flex-shrink-0 w-8 h-8 mt-1 bg-blue-600 rounded-full">
+                <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                   <Target className="w-4 h-4 text-white" />
                 </div>
                 <div>
-                  <h4 className="mb-2 font-semibold">1. Add Your Tasks</h4>
-                  <p className="text-sm text-gray-400">
+                  <h4 className="font-semibold mb-2">1. Add Your Tasks</h4>
+                  <p className="text-gray-400 text-sm">
                     Create tasks with duration, priority, deadlines, and descriptions. 
                     The more details you provide, the better AI can schedule them.
                   </p>
                 </div>
               </div>
               <div className="flex items-start space-x-3">
-                <div className="flex items-center justify-center flex-shrink-0 w-8 h-8 mt-1 bg-purple-600 rounded-full">
+                <div className="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                   <Users className="w-4 h-4 text-white" />
                 </div>
                 <div>
-                  <h4 className="mb-2 font-semibold">2. Connect Calendars</h4>
-                  <p className="text-sm text-gray-400">
+                  <h4 className="font-semibold mb-2">2. Connect Calendars</h4>
+                  <p className="text-gray-400 text-sm">
                     Link your Google Calendar to see existing events and 
                     find available time slots for your tasks.
                   </p>
                 </div>
               </div>
               <div className="flex items-start space-x-3">
-                <div className="flex items-center justify-center flex-shrink-0 w-8 h-8 mt-1 bg-green-600 rounded-full">
+                <div className="w-8 h-8 bg-green-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                   <Brain className="w-4 h-4 text-white" />
                 </div>
                 <div>
-                  <h4 className="mb-2 font-semibold">3. Let AI Optimize</h4>
-                  <p className="text-sm text-gray-400">
+                  <h4 className="font-semibold mb-2">3. Let AI Optimize</h4>
+                  <p className="text-gray-400 text-sm">
                     Our advanced AI analyzes your tasks, preferences, and calendar to create 
                     an optimized schedule that maximizes productivity and work-life balance.
                   </p>
