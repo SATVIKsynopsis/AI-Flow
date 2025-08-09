@@ -562,7 +562,7 @@ const ScheduleX: React.FC = () => {
                   <h4 className="font-semibold mb-2">3. Let AI Optimize</h4>
                   <p className="text-gray-400 text-sm">
                     Our AI analyzes your tasks, preferences, and calendar to create 
-                    an optimized schedule that maximizes productivity.
+                    an optimized schedule that maximizes productivity and work-life balance.
                   </p>
                 </div>
               </div>
