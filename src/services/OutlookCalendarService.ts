@@ -5,7 +5,6 @@ import { Client } from '@microsoft/microsoft-graph-client';
 import { AuthenticationProvider } from '@microsoft/microsoft-graph-client';
 import { CalendarEvent, CalendarProvider, TimeSlot } from '../types/calendar';
 
-// Custom authentication provider for Microsoft Graph
 class MSALAuthProvider implements AuthenticationProvider {
   private msalInstance: PublicClientApplication;
   private account: AccountInfo | null = null;
