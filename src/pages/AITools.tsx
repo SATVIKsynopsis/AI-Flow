@@ -84,10 +84,10 @@ const AITools: React.FC = () => {
     setOutput("");
 
     try {
-      const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
+      const apiKey = import.meta.env.VITE_APP_GEMINI_API_KEY;
       
       if (!apiKey) {
-        setOutput("Gemini API key not found. Please set VITE_GEMINI_API_KEY in your environment variables.");
+        setOutput("Gemini API key not found. Please set VITE_APP_GEMINI_API_KEY in your environment variables.");
         setLoading(false);
         return;
       }

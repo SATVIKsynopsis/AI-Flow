@@ -15,7 +15,7 @@ class AISchedulingService {
   private readonly GEMINI_API_KEY: string;
 
   constructor() {
-    this.GEMINI_API_KEY = import.meta.env.VITE_GEMINI_API_KEY || '';
+    this.GEMINI_API_KEY = import.meta.env.VITE_APP_GEMINI_API_KEY || '';
   }
 
   // Main method to generate schedule suggestions using user-selected times
