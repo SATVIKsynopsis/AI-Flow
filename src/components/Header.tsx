@@ -28,7 +28,7 @@ const Header: React.FC = () => {
               whileHover={{ scale: 1.05 }}
               className="flex items-center space-x-3"
             >
-              <div className="relative">
+              <div className="relative ml-9 md:ml-8 lg:ml-0">
                 <Code className="w-8 h-8 text-blue-500" />
                 <Sparkles className="w-4 h-4 text-purple-400 absolute -top-1 -right-1" />
               </div>

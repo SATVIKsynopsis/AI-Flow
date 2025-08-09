@@ -58,17 +58,17 @@ const Home: React.FC = () => {
             </div>
           </div>
 
-          <div className="container mx-auto grid lg:grid-cols-2 gap-12 items-center relative z-10">
+          <div className="container mx-auto grid lg:grid-cols-2 gap-12 items-center justify-center relative z-10">
             <motion.div
               initial={{ x: -100, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ delay: 0.2, duration: 0.8 }}
               className="text-center lg:text-left"
             >
-              <h1 className="text-5xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+              <h1 className="text-5xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent mt-4">
                 AI Flow
               </h1>
-              <p className="text-xl lg:text-2xl text-gray-300 mb-8 leading-relaxed">
+              <p className="text-sm md:text-2xl text-gray-300 mb-8 leading-relaxed">
                 Unleash the power of artificial intelligence with our
                 comprehensive suite of AI-powered tools designed to enhance your
                 productivity and creativity.
@@ -83,7 +83,7 @@ const Home: React.FC = () => {
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </motion.button>
               {!user && (
-                <p className="text-sm text-gray-400 mt-4">
+                <p className="text-sm text-gray-400 mt-4 lg:ml-6 ml-1">
                   Sign up to access all AI tools
                 </p>
               )}

@@ -9,6 +9,54 @@ import {
   Globe,
   BarChart,
 } from "lucide-react";
+
+
+// import { useNavigate } from 'react-router-dom';
+// import { supabase } from '../lib/supabase';
+// import { useAuth } from '../contexts/AuthContext';
+
+// const AiToolsPage = () => {
+//   const navigate = useNavigate();
+//   const { user } = useAuth();
+//   const [loading, setLoading] = useState(true);
+//   const [error, setError] = useState(null);
+
+//   useEffect(() => {
+//     const checkSession = async () => {
+//       try {
+//         const { data: { session } } = await supabase.auth.getSession();
+//         if (session?.user) {
+//           console.log('User logged in via Google:', session.user);
+//           navigate('/dashboard');
+//         } else {
+//           console.log('No session found');
+//           navigate('/');
+//         }
+//       } catch (error) {
+//         console.error('Session check failed:', error);
+//         setError('Authentication failed Please try again');
+//         navigate('/');
+//       } finally {
+//         setLoading(false);
+//       }
+//     };
+//     checkSession();
+//   }, [navigate]);
+
+//   return (
+//     <div className="min-h-screen flex items-center justify-center text-white">
+//       {loading ? (
+//         <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-blue-500"></div>
+//       ) : error ? (
+//         <div className="text-red-500">{error}</div>
+//       ) : (
+//         <div>Authenticating with Google...</div>
+//       )}
+//     </div>
+//   );
+// };
+
+
 import FormattedOutput from "../components/FormattedOutput";
 
 const AITools: React.FC = () => {
@@ -74,6 +122,7 @@ const AITools: React.FC = () => {
     tool.description.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
+
   const processWithAI = async (inputText: string, systemPrompt: string) => {
     if (!inputText.trim()) {
       setOutput("Please enter some text to process.");
@@ -106,6 +155,55 @@ const AITools: React.FC = () => {
               },
             ],
           }),
+
+  const GEMINI_API_KEY = import.meta.env.VITE_APP_GEMINI_API_KEY;
+  const GEMINI_MODEL = import.meta.env.VITE_APP_GEMINI_MODEL || "gemini-2.0-flash";
+
+
+  const processWithAI = async (
+    inputText: string,
+    systemPrompt: string,
+    isImage: Boolean
+  ) => {
+    if (!GEMINI_API_KEY) {
+      setOutput("API key not configured. Please contact the administrator.");
+      setLoading(false);
+      return;
+    }
+    console.log(isImage);
+
+
+    setLoading(true);
+    if (!isImage) {
+      try {
+        const response = await fetch(
+          `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "X-goog-api-key": GEMINI_API_KEY,
+            },
+            body: JSON.stringify({
+              contents: [
+                {
+                  parts: [{ text: systemPrompt + "\n" + inputText }],
+                },
+              ],
+            }),
+          }
+        );
+
+        const data = await response.json();
+        console.log(data); // For debugging
+
+        if (data?.candidates?.[0]?.content?.parts?.[0]?.text) {
+          setOutput(data.candidates[0].content.parts[0].text);
+        } else if (data?.error?.message) {
+          setOutput(`Gemini API Error: ${data.error.message}`);
+        } else {
+          setOutput("No response from Gemini API.");
+
         }
       );
 
