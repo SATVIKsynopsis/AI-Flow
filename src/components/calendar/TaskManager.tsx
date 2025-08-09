@@ -159,9 +159,15 @@ const TaskManager: React.FC<TaskManagerProps> = ({
   return (
     <div className="space-y-6">
       {/* Header */}
+<<<<<<< HEAD
       <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
         <div>
           <h2 className="mb-2 text-3xl font-bold text-white">Task Manager</h2>
+=======
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+        <div>
+          <h2 className="text-3xl font-bold text-white mb-2">Task Manager</h2>
+>>>>>>> feature/schedulex-calendar-feature
           <p className="text-gray-400">
             {pendingTasks.length} pending, {completedTasks.length} completed
           </p>
@@ -169,7 +175,11 @@ const TaskManager: React.FC<TaskManagerProps> = ({
         
         <button
           onClick={() => setIsAddingTask(true)}
+<<<<<<< HEAD
           className="flex items-center px-6 py-3 space-x-2 font-semibold text-white transition-all duration-300 rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
+=======
+          className="flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg font-semibold text-white hover:from-blue-700 hover:to-purple-700 transition-all duration-300"
+>>>>>>> feature/schedulex-calendar-feature
         >
           <Plus className="w-5 h-5" />
           <span>Add Task</span>
@@ -184,7 +194,11 @@ const TaskManager: React.FC<TaskManagerProps> = ({
           <select
             value={filter}
             onChange={(e) => setFilter(e.target.value as any)}
+<<<<<<< HEAD
             className="px-3 py-1 text-sm text-white bg-gray-700 border border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+=======
+            className="bg-gray-700 border border-gray-600 rounded px-3 py-1 text-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+>>>>>>> feature/schedulex-calendar-feature
           >
             <option value="all">All Tasks</option>
             <option value="pending">Pending</option>
@@ -197,7 +211,11 @@ const TaskManager: React.FC<TaskManagerProps> = ({
           <select
             value={priorityFilter}
             onChange={(e) => setPriorityFilter(e.target.value as any)}
+<<<<<<< HEAD
             className="px-3 py-1 text-sm text-white bg-gray-700 border border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+=======
+            className="bg-gray-700 border border-gray-600 rounded px-3 py-1 text-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+>>>>>>> feature/schedulex-calendar-feature
           >
             <option value="all">All Priorities</option>
             <option value="urgent">Urgent</option>
@@ -215,16 +233,28 @@ const TaskManager: React.FC<TaskManagerProps> = ({
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
+<<<<<<< HEAD
             className="p-6 border border-gray-600 rounded-lg bg-gray-900/50"
           >
             <h3 className="mb-4 text-xl font-semibold text-white">
+=======
+            className="bg-gray-900/50 p-6 rounded-lg border border-gray-600"
+          >
+            <h3 className="text-xl font-semibold mb-4 text-white">
+>>>>>>> feature/schedulex-calendar-feature
               {editingTask ? 'Edit Task' : 'Add New Task'}
             </h3>
             
             <form onSubmit={handleSubmit} className="space-y-4">
+<<<<<<< HEAD
               <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                 <div>
                   <label className="block mb-2 text-sm font-medium text-gray-300">
+=======
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium mb-2 text-gray-300">
+>>>>>>> feature/schedulex-calendar-feature
                     Task Title *
                   </label>
                   <input
@@ -232,41 +262,67 @@ const TaskManager: React.FC<TaskManagerProps> = ({
                     value={formData.title}
                     onChange={(e) => setFormData({ ...formData, title: e.target.value })}
                     required
+<<<<<<< HEAD
                     className="w-full px-4 py-2 text-white placeholder-gray-400 bg-gray-800 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+=======
+                    className="w-full px-4 py-2 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+>>>>>>> feature/schedulex-calendar-feature
                     placeholder="Enter task title"
                   />
                 </div>
                 
                 <div>
+<<<<<<< HEAD
                   <label className="block mb-2 text-sm font-medium text-gray-300">
+=======
+                  <label className="block text-sm font-medium mb-2 text-gray-300">
+>>>>>>> feature/schedulex-calendar-feature
                     Category
                   </label>
                   <input
                     type="text"
                     value={formData.category}
                     onChange={(e) => setFormData({ ...formData, category: e.target.value })}
+<<<<<<< HEAD
                     className="w-full px-4 py-2 text-white placeholder-gray-400 bg-gray-800 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+=======
+                    className="w-full px-4 py-2 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+>>>>>>> feature/schedulex-calendar-feature
                     placeholder="e.g., Work, Personal"
                   />
                 </div>
               </div>
 
               <div>
+<<<<<<< HEAD
                 <label className="block mb-2 text-sm font-medium text-gray-300">
+=======
+                <label className="block text-sm font-medium mb-2 text-gray-300">
+>>>>>>> feature/schedulex-calendar-feature
                   Description
                 </label>
                 <textarea
                   value={formData.description}
                   onChange={(e) => setFormData({ ...formData, description: e.target.value })}
                   rows={3}
+<<<<<<< HEAD
                   className="w-full px-4 py-2 text-white placeholder-gray-400 bg-gray-800 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+=======
+                  className="w-full px-4 py-2 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+>>>>>>> feature/schedulex-calendar-feature
                   placeholder="Describe the task..."
                 />
               </div>
 
+<<<<<<< HEAD
               <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
                 <div>
                   <label className="block mb-2 text-sm font-medium text-gray-300">
+=======
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div>
+                  <label className="block text-sm font-medium mb-2 text-gray-300">
+>>>>>>> feature/schedulex-calendar-feature
                     Duration (minutes)
                   </label>
                   <input
@@ -275,18 +331,30 @@ const TaskManager: React.FC<TaskManagerProps> = ({
                     onChange={(e) => setFormData({ ...formData, duration: parseInt(e.target.value) || 60 })}
                     min="15"
                     max="480"
+<<<<<<< HEAD
                     className="w-full px-4 py-2 text-white bg-gray-800 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+=======
+                    className="w-full px-4 py-2 bg-gray-800 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+>>>>>>> feature/schedulex-calendar-feature
                   />
                 </div>
                 
                 <div>
+<<<<<<< HEAD
                   <label className="block mb-2 text-sm font-medium text-gray-300">
+=======
+                  <label className="block text-sm font-medium mb-2 text-gray-300">
+>>>>>>> feature/schedulex-calendar-feature
                     Priority
                   </label>
                   <select
                     value={formData.priority}
                     onChange={(e) => setFormData({ ...formData, priority: e.target.value as any })}
+<<<<<<< HEAD
                     className="w-full px-4 py-2 text-white bg-gray-800 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+=======
+                    className="w-full px-4 py-2 bg-gray-800 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+>>>>>>> feature/schedulex-calendar-feature
                   >
                     <option value="low">Low</option>
                     <option value="medium">Medium</option>
@@ -296,13 +364,21 @@ const TaskManager: React.FC<TaskManagerProps> = ({
                 </div>
                 
                 <div>
+<<<<<<< HEAD
                   <label className="block mb-2 text-sm font-medium text-gray-300">
+=======
+                  <label className="block text-sm font-medium mb-2 text-gray-300">
+>>>>>>> feature/schedulex-calendar-feature
                     Effort Level
                   </label>
                   <select
                     value={formData.estimatedEffort}
                     onChange={(e) => setFormData({ ...formData, estimatedEffort: e.target.value as any })}
+<<<<<<< HEAD
                     className="w-full px-4 py-2 text-white bg-gray-800 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+=======
+                    className="w-full px-4 py-2 bg-gray-800 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+>>>>>>> feature/schedulex-calendar-feature
                   >
                     <option value="easy">Easy</option>
                     <option value="medium">Medium</option>
@@ -311,44 +387,73 @@ const TaskManager: React.FC<TaskManagerProps> = ({
                 </div>
               </div>
 
+<<<<<<< HEAD
               <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                 <div>
                   <label className="block mb-2 text-sm font-medium text-gray-300">
+=======
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium mb-2 text-gray-300">
+>>>>>>> feature/schedulex-calendar-feature
                     Deadline
                   </label>
                   <input
                     type="datetime-local"
                     value={formData.deadline}
                     onChange={(e) => setFormData({ ...formData, deadline: e.target.value })}
+<<<<<<< HEAD
                     className="w-full px-4 py-2 text-white bg-gray-800 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+=======
+                    className="w-full px-4 py-2 bg-gray-800 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+>>>>>>> feature/schedulex-calendar-feature
                   />
                 </div>
                 
                 <div>
+<<<<<<< HEAD
                   <label className="block mb-2 text-sm font-medium text-gray-300">
+=======
+                  <label className="block text-sm font-medium mb-2 text-gray-300">
+>>>>>>> feature/schedulex-calendar-feature
                     Location
                   </label>
                   <input
                     type="text"
                     value={formData.location}
                     onChange={(e) => setFormData({ ...formData, location: e.target.value })}
+<<<<<<< HEAD
                     className="w-full px-4 py-2 text-white placeholder-gray-400 bg-gray-800 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+=======
+                    className="w-full px-4 py-2 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+>>>>>>> feature/schedulex-calendar-feature
                     placeholder="Optional location"
                   />
                 </div>
               </div>
 
+<<<<<<< HEAD
               <div className="flex pt-4 space-x-4">
                 <button
                   type="submit"
                   className="px-6 py-2 font-semibold text-white transition-all duration-300 rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
+=======
+              <div className="flex space-x-4 pt-4">
+                <button
+                  type="submit"
+                  className="px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg font-semibold text-white hover:from-blue-700 hover:to-purple-700 transition-all duration-300"
+>>>>>>> feature/schedulex-calendar-feature
                 >
                   {editingTask ? 'Update Task' : 'Add Task'}
                 </button>
                 <button
                   type="button"
                   onClick={handleCancel}
+<<<<<<< HEAD
                   className="px-6 py-2 font-semibold text-white transition-all duration-300 bg-gray-600 rounded-lg hover:bg-gray-700"
+=======
+                  className="px-6 py-2 bg-gray-600 hover:bg-gray-700 rounded-lg font-semibold text-white transition-all duration-300"
+>>>>>>> feature/schedulex-calendar-feature
                 >
                   Cancel
                 </button>
@@ -361,11 +466,19 @@ const TaskManager: React.FC<TaskManagerProps> = ({
       {/* Task List */}
       <div className="space-y-4">
         {filteredTasks.length === 0 ? (
+<<<<<<< HEAD
           <div className="py-12 text-center">
             <div className="flex items-center justify-center w-16 h-16 mx-auto mb-4 bg-gray-700 rounded-full">
               <CheckCircle className="w-8 h-8 text-gray-500" />
             </div>
             <h3 className="mb-2 text-xl font-semibold text-gray-400">No tasks found</h3>
+=======
+          <div className="text-center py-12">
+            <div className="w-16 h-16 bg-gray-700 rounded-full flex items-center justify-center mx-auto mb-4">
+              <CheckCircle className="w-8 h-8 text-gray-500" />
+            </div>
+            <h3 className="text-xl font-semibold text-gray-400 mb-2">No tasks found</h3>
+>>>>>>> feature/schedulex-calendar-feature
             <p className="text-gray-500">
               {tasks.length === 0 
                 ? "Add your first task to get started with AI scheduling"
@@ -386,7 +499,11 @@ const TaskManager: React.FC<TaskManagerProps> = ({
                 }`}
               >
                 <div className="flex items-start justify-between">
+<<<<<<< HEAD
                   <div className="flex items-start flex-1 space-x-4">
+=======
+                  <div className="flex items-start space-x-4 flex-1">
+>>>>>>> feature/schedulex-calendar-feature
                     <button
                       onClick={() => toggleTaskCompletion(task.id, task.isCompleted)}
                       className={`mt-1 transition-colors duration-200 ${
@@ -403,7 +520,11 @@ const TaskManager: React.FC<TaskManagerProps> = ({
                     </button>
                     
                     <div className="flex-1">
+<<<<<<< HEAD
                       <div className="flex items-center mb-2 space-x-3">
+=======
+                      <div className="flex items-center space-x-3 mb-2">
+>>>>>>> feature/schedulex-calendar-feature
                         <h3 className={`text-lg font-semibold ${
                           task.isCompleted ? 'line-through text-gray-500' : 'text-white'
                         }`}>
@@ -418,14 +539,22 @@ const TaskManager: React.FC<TaskManagerProps> = ({
                         </span>
 
                         {task.category && (
+<<<<<<< HEAD
                           <span className="px-2 py-1 text-xs text-blue-400 rounded-full bg-blue-500/20">
+=======
+                          <span className="px-2 py-1 bg-blue-500/20 text-blue-400 rounded-full text-xs">
+>>>>>>> feature/schedulex-calendar-feature
                             {task.category}
                           </span>
                         )}
                       </div>
                       
                       {task.description && (
+<<<<<<< HEAD
                         <p className="mb-3 text-gray-400">{task.description}</p>
+=======
+                        <p className="text-gray-400 mb-3">{task.description}</p>
+>>>>>>> feature/schedulex-calendar-feature
                       )}
                       
                       <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500">
@@ -450,16 +579,27 @@ const TaskManager: React.FC<TaskManagerProps> = ({
                     </div>
                   </div>
                   
+<<<<<<< HEAD
                   <div className="flex items-center ml-4 space-x-2">
                     <button
                       onClick={() => handleEdit(task)}
                       className="p-2 text-gray-400 transition-all duration-200 rounded-lg hover:text-blue-400 hover:bg-blue-500/20"
+=======
+                  <div className="flex items-center space-x-2 ml-4">
+                    <button
+                      onClick={() => handleEdit(task)}
+                      className="p-2 text-gray-400 hover:text-blue-400 hover:bg-blue-500/20 rounded-lg transition-all duration-200"
+>>>>>>> feature/schedulex-calendar-feature
                     >
                       <Edit3 className="w-4 h-4" />
                     </button>
                     <button
                       onClick={() => onDeleteTask(task.id)}
+<<<<<<< HEAD
                       className="p-2 text-gray-400 transition-all duration-200 rounded-lg hover:text-red-400 hover:bg-red-500/20"
+=======
+                      className="p-2 text-gray-400 hover:text-red-400 hover:bg-red-500/20 rounded-lg transition-all duration-200"
+>>>>>>> feature/schedulex-calendar-feature
                     >
                       <Trash2 className="w-4 h-4" />
                     </button>

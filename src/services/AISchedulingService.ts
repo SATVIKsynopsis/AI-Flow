@@ -26,10 +26,19 @@ class AISchedulingService {
     dateRange: { start: Date; end: Date }
   ): Promise<ScheduleOptimization> {
     try {
+<<<<<<< HEAD
+=======
+      console.log('🚀 Generating simple schedule from user-selected times');
+      
+>>>>>>> feature/schedulex-calendar-feature
       const suggestions: AISchedulingSuggestion[] = [];
 
       for (const task of tasks) {
         if (!task.deadline) {
+<<<<<<< HEAD
+=======
+          console.log(`⚠️ Skipping task "${task.title}" - no deadline time specified`);
+>>>>>>> feature/schedulex-calendar-feature
           continue;
         }
 
@@ -37,6 +46,11 @@ class AISchedulingService {
         const scheduledStart = new Date(task.deadline);
         const scheduledEnd = addMinutes(scheduledStart, task.duration);
 
+<<<<<<< HEAD
+=======
+        console.log(`📅 Scheduling "${task.title}" at user-selected time: ${format(scheduledStart, 'MMM do, yyyy HH:mm')} - ${format(scheduledEnd, 'HH:mm')}`);
+
+>>>>>>> feature/schedulex-calendar-feature
         const suggestion: AISchedulingSuggestion = {
           id: `suggestion-${task.id}-${Date.now()}`,
           task,
@@ -58,6 +72,7 @@ class AISchedulingService {
         suggestions.push(suggestion);
       }
 
+<<<<<<< HEAD
       // Create optimization result
       const optimization: ScheduleOptimization = {
         totalTasks: tasks.length,
@@ -66,6 +81,22 @@ class AISchedulingService {
         suggestions,
         workloadBalance: [],
         conflicts: []
+=======
+      console.log(`✅ Created ${suggestions.length} simple schedule suggestions`);
+
+      // Create optimization result
+      const optimization: ScheduleOptimization = {
+        suggestions,
+        conflictResolutions: [],
+        scheduleScore: 100, // Perfect score since we're using user's exact choices
+        optimizationInsights: [
+          'Tasks scheduled at user-selected times',
+          `${suggestions.length} tasks scheduled successfully`,
+          'No AI optimization needed - using your preferred times'
+        ],
+        estimatedProductivity: 0.95,
+        suggestedAdjustments: []
+>>>>>>> feature/schedulex-calendar-feature
       };
 
       return optimization;
